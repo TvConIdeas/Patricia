@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Patricia - Tu cajera de confianza</title>
+    
+    <!-- (--- Fuentes de Google: Love Light, Dancing Script & Montserrat ---) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Love+Light&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- (--- Iconos de FontAwesome ---) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- (--- Contenedor Principal ---) -->
+    <main class="container">
+        
+        <!-- (--- Header / Perfil ---) -->
+        <header class="profile-header">
+            <h1 class="title">Patricia</h1>
+            <p class="subtitle">Tu cajera de confianza</p>
+        </header>
+
+        <!-- (--- Frase Motivadora ---) -->
+        <section class="card-section quote-card">
+            <p class="quote-text">Dejá que el azar marque tu destino… hoy la ruleta tiene algo para vos, ¡el juego que sale es el de tu suerte!</p>
+        </section>
+
+        <!-- (--- Ruleta de Juegos ---) -->
+        <section class="card-section roulette-section">
+            <h2 class="section-title"><i class="fa-solid fa-dice"></i> Probá tu suerte</h2>
+            
+            <div class="roulette-container">
+                <div class="pointer"></div>
+                <canvas id="rouletteCanvas" width="300" height="300"></canvas>
+            </div>
+            
+            <button id="spinBtn" class="btn btn-spin">
+                <i class="fa-solid fa-rotate"></i> ¡GIRAR RULETA!
+            </button>
+        </section>
+
+        <div class="section-divider">
+            <span><i class="fa-solid fa-gem"></i></span>
+        </div>
+
+        <!-- (--- Sección Carga / WhatsApp ---) -->
+        <section class="card-section info-card">
+            <h2 class="section-title"><i class="fa-solid fa-wallet"></i> Para Cargar </h2>
+            <p class="card-subtitle">Hacé click en un canal para comunicarte:</p>
+
+            <div class="links-section">
+                <a href="https://wa.me/542234254737" target="_blank" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Principal
+                </a>
+                <a href="https://wa.link/6vegrb" target="_blank" class="btn btn-whatsapp">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Alternativo
+                </a>
+            </div>
+        </section>
+
+        <!-- (--- Sección Plataforma ---) -->
+        <section class="card-section platform-card">
+            <h2 class="section-title"><i class="fa-solid fa-gamepad"></i> Plataforma</h2>
+            <p class="card-subtitle">Ingresá para jugar directamente:</p>
+            
+            <a href="https://celuapuestas.fans/" target="_blank" class="btn btn-platform">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i> Entrar a CeluApuestas
+            </a>
+        </section>
+
+    </main>
+
+    <!-- (--- Modal de Resultado ---) -->
+    <div id="resultModal" class="modal-overlay">
+        <div class="modal-content">
+            <h3 class="modal-title">¡Este es tu próximo destino!</h3>
+            <img id="modalGameImg" src="" alt="Juego seleccionado" class="modal-game-img">
+            <p id="modalGameText" class="modal-game-text">Juego seleccionado</p>
+            <button id="closeModalBtn" class="btn btn-close-modal">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

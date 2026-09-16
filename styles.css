@@ -1,0 +1,398 @@
+/* (--- Variables de Color ---) */
+:root {
+    --bg-red-dark: #670000;
+    --bg-red-bright: #bd2828;
+    --accent-yellow: #fbc02d;
+    --accent-yellow-hover: #f57f17;
+    --accent-purple: #7b1fa2;
+    --accent-purple-hover: #4a148c;
+    --neutral-white: #ffffff;
+    --text-dark: #212121;
+    --card-bg: rgba(0, 0, 0, 0.4);
+    --border-gold: rgba(251, 192, 45, 0.4);
+}
+
+/* (--- Reset y Estilos Globales ---) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 12px;
+    position: relative;
+    overflow-x: hidden;
+    background: radial-gradient(circle, var(--bg-red-bright) 0%, var(--bg-red-dark) 100%);
+}
+
+/* (--- Capa de Viñeta Oscura ---) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* (--- Textura de Casino: Diamantes, Tréboles y Fichas de Póker ---) */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/casino-pattern.svg");
+    background-size: 80px 80px;
+    background-repeat: repeat;
+    opacity: 0.15; 
+    pointer-events: none;
+    z-index: 0;
+    animation: casinoWaterfall 30s linear infinite;
+}
+
+@keyframes casinoWaterfall {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 600px; }
+}
+
+/* (--- Contenedor Principal ---) */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 430px;
+    background: rgba(15, 5, 5, 0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid var(--accent-yellow);
+    border-radius: 24px;
+    padding: 25px 18px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: var(--neutral-white);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* (--- Header / Perfil ---) */
+.profile-header {
+    margin-bottom: 5px;
+}
+
+.title {
+    font-family: 'Love Light', cursive;
+    font-size: 4.2rem;
+    color: var(--accent-yellow);
+    line-height: 1.1;
+    -webkit-text-stroke: 1.5px #050505;
+    paint-order: stroke fill;
+    filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.6));
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--accent-yellow);
+    font-weight: 600;
+    font-style: italic;
+    letter-spacing: 0.8px;
+}
+
+/* (--- Tarjetas de Sección ---) */
+.card-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-gold);
+    border-radius: 16px;
+    padding: 18px 14px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.section-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.7rem;
+    color: var(--accent-yellow);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.card-subtitle {
+    font-size: 0.82rem;
+    color: #e0e0e0;
+    margin-bottom: 12px;
+}
+
+/* (--- Frase Motivadora ---) */
+.quote-card {
+    position: relative;
+    background: rgba(251, 192, 45, 0.1);
+    border-left: 4px solid var(--accent-yellow);
+    padding: 14px 18px;
+    text-align: left;
+}
+
+.quote-icon {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 1.2rem;
+    color: var(--accent-yellow);
+    opacity: 0.3;
+}
+
+.quote-text {
+    font-style: italic;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: #fff;
+}
+
+/* (--- Ruleta ---) */
+.roulette-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.roulette-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 15px 0 20px;
+    border-radius: 50%;
+    animation: glowPulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulse {
+    0% { box-shadow: 0 0 12px rgba(251, 192, 45, 0.4); }
+    100% { box-shadow: 0 0 25px rgba(251, 192, 45, 0.85); }
+}
+
+.pointer {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top: 24px solid var(--accent-yellow);
+    z-index: 10;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    animation: bouncePointer 1s infinite alternate ease-in-out;
+}
+
+@keyframes bouncePointer {
+    0% { transform: translateX(-50%) translateY(0); }
+    100% { transform: translateX(-50%) translateY(-5px); }
+}
+
+#rouletteCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+/* (--- Divisor Decorativo ---) */
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2px 0;
+    position: relative;
+}
+
+.section-divider::before,
+.section-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-gold), transparent);
+}
+
+.section-divider span {
+    padding: 0 10px;
+    color: var(--accent-yellow);
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* (--- Botones Generales ---) */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* (--- Estilos de Botones Específicos ---) */
+.btn-spin {
+    background-color: var(--accent-yellow);
+    color: var(--text-dark);
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    animation: pulseButton 1.6s infinite;
+}
+
+@keyframes pulseButton {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(251, 192, 45, 0.7);
+    }
+    70% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 10px rgba(251, 192, 45, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(251, 192, 45, 0);
+    }
+}
+
+.links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-whatsapp {
+    background-color: var(--accent-yellow);
+    color: var(--text-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background-color: var(--accent-yellow-hover);
+}
+
+.btn-platform {
+    background: linear-gradient(135deg, #8e24aa 0%, var(--accent-purple) 100%);
+    color: var(--neutral-white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(123, 31, 162, 0.4);
+}
+
+.btn-platform:hover {
+    background: var(--accent-purple-hover);
+}
+
+/* (--- Modal ---) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 100;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    background: var(--neutral-white);
+    color: var(--text-dark);
+    padding: 25px 20px;
+    border-radius: 18px;
+    width: 85%;
+    max-width: 320px;
+    text-align: center;
+    border: 3px solid var(--accent-yellow);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-title {
+    color: var(--bg-red-bright);
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.modal-game-img {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 3px solid var(--accent-yellow);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    margin-bottom: 12px;
+}
+
+.modal-game-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+}
+
+.btn-close-modal {
+    background-color: var(--accent-yellow);
+    color: var(--text-dark);
+}
+
+.btn-close-modal:hover {
+    background-color: var(--accent-yellow-hover);
+}
+
+/* (--- Responsivo ---) */
+@media (max-width: 360px) {
+    .container {
+        padding: 16px 12px;
+    }
+    
+    .title {
+        font-size: 3.4rem;
+    }
+    
+    .roulette-container {
+        width: 220px;
+        height: 220px;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+}
